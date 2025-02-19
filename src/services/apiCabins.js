@@ -46,18 +46,7 @@ export async function deleteCabin(id) {
 export async function createEditCabin(newCabin, id) {
   let query = supabase.from("cabins");
 
-  if (!id)
-    query = query.insert([
-      { ...newCabin },
-
-      // {
-      //   regularPrice: "regularPrice",
-      //   name: "name",
-      //   maxCapacity: "maxCapacity",
-      //   discount: "discount",
-      //   description: "description",
-      // },
-    ]);
+  if (!id) query = query.insert([{ ...newCabin }]);
 
   if (id)
     query = query
