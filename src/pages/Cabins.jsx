@@ -1,8 +1,7 @@
 import Heading from "../ui/Heading";
 import Row from "../ui/Row";
 import CabinTable from "../features/cabins/CabinTable";
-import AddCabins from "./AddCabin";
-import { getCabins } from "../services/apiCabins";
+import AddCabins from "../features/cabins/AddCabin";
 
 function Cabins() {
   //------- DO THIS TO MAKE SURE DATA IS BEING FETCHED/////

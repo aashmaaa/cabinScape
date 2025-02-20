@@ -4,7 +4,7 @@ import Button from "../ui/Button";
 import CreateCabinForm from "../features/cabins/CreateCabinForm";
 import Modal from "../ui/Modal";
 
-function AddCabins() {
+function AddCabin() {
   const [isOpenModal, setIsOpenModal] = useState(false);
 
   return (
@@ -20,5 +20,25 @@ function AddCabins() {
     </div>
   );
 }
+// function AddCabin() {
+//   return;
+//  (
+// <Modal>
+//   <Modal.Open opens="cabin-form">
+//     <Button>Add new cabin</Button>
+//     <Modal.Window name="cabin-form">
+//       <CreateCabinForm />
+//     </Modal.Window>
+//   </Modal.Open>
 
-export default AddCabins;
+//   {/* <Modal.Open opens="table">
+//     <Button>Show Table</Button>
+//     <Modal.Window name="table">
+//       <CreateCabinForm />
+//     </Modal.Window>
+//   </Modal.Open> */}
+// </Modal>
+// );
+// }
+
+export default AddCabin;
