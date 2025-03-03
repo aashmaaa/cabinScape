@@ -1,6 +1,7 @@
 import styled from "styled-components";
+import { HiOutlineUser } from "react-icons/hi2";
 
-const ButtonIcon = styled.button`
+const StyledButtonIcon = styled.button`
   background: none;
   border: none;
   padding: 0.6rem;
@@ -17,5 +18,8 @@ const ButtonIcon = styled.button`
     color: var(--color-brand-600);
   }
 `;
+// function ButtonIcon() {
+//   return <StyledButtonIcon>{/* <HiOutlineUser /> */}</StyledButtonIcon>;
+// }
 
-export default ButtonIcon;
+export default StyledButtonIcon;
