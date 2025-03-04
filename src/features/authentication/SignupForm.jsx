@@ -14,21 +14,19 @@ function SignupForm() {
     signup(
       { fullname: fullName, email, password },
       {
-        onSettled: reset,
+        onSettled: () => reset(),
       }
     );
-
-    // console.log(data);
   }
+
   return (
-    <Form onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit(onSubmit)}>
       <FormRow label="Full name" error={errors?.fullName?.message}>
         <Input
           type="text"
-          id="fullname"
-          {...register("fullName", {
-            required: "This field is required",
-          })}
+          id="fullName"
+          disabled={isLoading}
+          {...register("fullName", { required: "This field is required" })}
         />
       </FormRow>
 
@@ -36,11 +34,12 @@ function SignupForm() {
         <Input
           type="email"
           id="email"
+          disabled={isLoading}
           {...register("email", {
             required: "This field is required",
             pattern: {
               value: /\S+@\S+\.\S+/,
-              message: "Invalid email address",
+              message: "Please provide a valid email address",
             },
           })}
         />
@@ -53,11 +52,12 @@ function SignupForm() {
         <Input
           type="password"
           id="password"
+          disabled={isLoading}
           {...register("password", {
             required: "This field is required",
             minLength: {
               value: 8,
-              message: "Password must be at least 8 characters",
+              message: "Password needs a minimum of 8 characters",
             },
           })}
         />
@@ -67,6 +67,7 @@ function SignupForm() {
         <Input
           type="password"
           id="passwordConfirm"
+          disabled={isLoading}
           {...register("passwordConfirm", {
             required: "This field is required",
             validate: (value) =>
@@ -76,12 +77,15 @@ function SignupForm() {
       </FormRow>
 
       <FormRow>
-        <>
-          <Button variation="secondary" type="reset">
-            Cancel
-          </Button>
-          <Button>Create new user</Button>
-        </>
+        <Button
+          variation="secondary"
+          type="reset"
+          disabled={isLoading}
+          onClick={reset}
+        >
+          Cancel
+        </Button>
+        <Button disabled={isLoading}>Create new user</Button>
       </FormRow>
     </Form>
   );
