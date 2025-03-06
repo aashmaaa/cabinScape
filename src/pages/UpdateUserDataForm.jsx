@@ -11,20 +11,20 @@ function UpdateUserDataForm() {
   const {
     user: {
       email,
-      user_metadata: { fullName: currentFullName },
+      user_metadata: { fullname: currentFullName },
     },
   } = useUser();
 
   const { updateUser, isUpdating } = useUpdateUser();
 
-  const [fullName, setFullName] = useState(currentFullName);
+  const [fullname, setFullName] = useState(currentFullName);
   const [avatar, setAvatar] = useState(null);
 
   function handleSubmit(e) {
     e.preventDefault();
-    if (!fullName) return;
+    if (!fullname) return;
     updateUser(
-      { fullName, avatar },
+      { fullname, avatar },
       {
         onSuccess: () => {
           setAvatar(null);
@@ -32,6 +32,7 @@ function UpdateUserDataForm() {
         },
       }
     );
+    console.log(fullname);
   }
 
   function handleCancel() {
@@ -48,7 +49,7 @@ function UpdateUserDataForm() {
       <FormRow label="Full name">
         <Input
           type="text"
-          value={fullName}
+          value={fullname}
           onChange={(e) => setFullName(e.target.value)}
           id="fullName"
           disabled={isUpdating}
