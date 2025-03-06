@@ -2,6 +2,7 @@ import Heading from "../ui/Heading";
 import Row from "../ui/Row";
 import CabinTable from "../features/cabins/CabinTable";
 import AddCabins from "../features/cabins/AddCabin";
+import CabinTableOperatins from "../features/cabins/CabinTableOperations";
 
 function Cabins() {
   //------- DO THIS TO MAKE SURE DATA IS BEING FETCHED/////
@@ -13,7 +14,7 @@ function Cabins() {
     <>
       <Row type="horizontal">
         <Heading as="h1">All cabins</Heading>
-        <p>TEST</p>
+        <CabinTableOperatins />
       </Row>
       <Row>
         <CabinTable />
