@@ -92,44 +92,52 @@ function BookingRow({
 
       <Amount>{formatCurrency(totalPrice)}</Amount>
 
-      <Modal>
-        <Menus.Menu>
-          <Menus.Toggle id={bookingId} />
-          <Menus.List id={bookingId}>
+      {/* <Menus.Menu>
+        <Menus.Toggle id={bookingId} />
+        <Menus.List id={bookingId}>
+          <Menus.Button
+            onClick={() => navigate(`/bookings/${bookingId}`)}
+            icon={<HiEye />}
+          >
+            See details
+          </Menus.Button>
+
+          {status === "unconfirmed" && (
             <Menus.Button
-              onClick={() => navigate(`/bookings/${bookingId}`)}
-              icon={<HiEye />}
+              onClick={() => navigate(`/checkin/${bookingId}`)}
+              icon={<HiArrowDownOnSquare />}
             >
-              See details
+              Check in
             </Menus.Button>
+          )}
 
-            {status === "unconfirmed" && (
-              <Menus.Button
-                onClick={() => navigate(`/checkin/${bookingId}`)}
-                icon={<HiArrowDownOnSquare />}
-              >
-                Check in
-              </Menus.Button>
-            )}
+          {status === "checked-in" && (
+            <Menus.Button icon={<HiArrowUpOnSquare />}>Check out</Menus.Button>
+          )}
 
-            {status === "checked-in" && (
-              <Menus.Button icon={<HiArrowUpOnSquare />}>
-                Check out
-              </Menus.Button>
-            )}
+          <Menus.Button icon={<HiPencil />}>Edit booking</Menus.Button>
 
-            <Menus.Button icon={<HiPencil />}>Edit booking</Menus.Button>
+          <Modal.Toggle opens="delete">
+            <Menus.Button icon={<HiTrash />}>Delete booking</Menus.Button>
+          </Modal.Toggle>
+        </Menus.List>
+      </Menus.Menu> */}
 
-            <Modal.Toggle opens="delete">
-              <Menus.Button icon={<HiTrash />}>Delete booking</Menus.Button>
-            </Modal.Toggle>
-          </Menus.List>
-        </Menus.Menu>
+      <Menus.Menu>
+        <Menus.Toggle id={bookingId} />
+        <Menus.List id={bookingId}>
+          <Menus.Button
+            icon={<HiEye />}
+            onClick={() => navigate(`/bookings/${bookingId}`)}
+          >
+            See Details
+          </Menus.Button>
+        </Menus.List>
+      </Menus.Menu>
 
-        <Modal.Window name="delete">
-          <ConfirmDelete resource="booking" />
-        </Modal.Window>
-      </Modal>
+      {/* <Modal.Window name="delete">
+        <ConfirmDelete resource="booking" />
+      </Modal.Window> */}
     </Table.Row>
   );
 }
