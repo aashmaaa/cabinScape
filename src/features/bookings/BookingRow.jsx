@@ -92,37 +92,6 @@ function BookingRow({
 
       <Amount>{formatCurrency(totalPrice)}</Amount>
 
-      {/* <Menus.Menu>
-        <Menus.Toggle id={bookingId} />
-        <Menus.List id={bookingId}>
-          <Menus.Button
-            onClick={() => navigate(`/bookings/${bookingId}`)}
-            icon={<HiEye />}
-          >
-            See details
-          </Menus.Button>
-
-          {status === "unconfirmed" && (
-            <Menus.Button
-              onClick={() => navigate(`/checkin/${bookingId}`)}
-              icon={<HiArrowDownOnSquare />}
-            >
-              Check in
-            </Menus.Button>
-          )}
-
-          {status === "checked-in" && (
-            <Menus.Button icon={<HiArrowUpOnSquare />}>Check out</Menus.Button>
-          )}
-
-          <Menus.Button icon={<HiPencil />}>Edit booking</Menus.Button>
-
-          <Modal.Toggle opens="delete">
-            <Menus.Button icon={<HiTrash />}>Delete booking</Menus.Button>
-          </Modal.Toggle>
-        </Menus.List>
-      </Menus.Menu> */}
-
       <Menus.Menu>
         <Menus.Toggle id={bookingId} />
         <Menus.List id={bookingId}>
@@ -132,6 +101,15 @@ function BookingRow({
           >
             See Details
           </Menus.Button>
+
+          {status === "unconfirmed" && (
+            <Menus.Button
+              icon={<HiArrowDownOnSquare />}
+              onClick={() => navigate(`/checkin/${bookingId}`)}
+            >
+              Check In
+            </Menus.Button>
+          )}
         </Menus.List>
       </Menus.Menu>
 
