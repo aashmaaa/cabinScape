@@ -185,6 +185,10 @@ img {
   filter: grayscale(var(--image-grayscale)) opacity(var(--image-opacity));
 }
 
+box {
+
+}
+
 `;
 
 export default GlobalStyles;
