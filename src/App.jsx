@@ -17,7 +17,6 @@ import ProtectedRoute from "./ui/ProtectedRoute";
 import { DarkModeProvider } from "./context/DarkModeContext";
 import Booking from "./pages/Booking";
 import CheckIn from "./pages/CheckIn";
-import Airtable from "./services/airTable";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -50,7 +49,6 @@ function App() {
               <Route path="cabins" element={<Cabins />} />
               <Route path="users" element={<Users />} />
               <Route path="settings" element={<Settings />} />
-              <Route path="airtable" element={<Airtable />} />
               <Route path="account" element={<Account />} />
             </Route>
 
